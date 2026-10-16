@@ -1,0 +1,40 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    -webkit-tap-highlight-color: transparent;
+  }
+  body {
+    @apply bg-kron-cream font-sans text-kron-ink antialiased;
+  }
+  :focus-visible {
+    outline: 3px solid #4338a0;
+    outline-offset: 2px;
+  }
+  /* 16px evita el zoom automático de iOS al enfocar un campo */
+  input,
+  textarea {
+    font-size: 16px;
+  }
+}
+
+@layer components {
+  .field {
+    @apply w-full rounded-xl border border-kron-purple/20 bg-white px-4 py-3 text-base placeholder:text-kron-ink/40 focus:border-kron-indigo;
+  }
+  .btn-primary {
+    @apply inline-flex min-h-[52px] w-full items-center justify-center gap-2 rounded-2xl bg-kron-indigo px-5 text-base font-semibold text-white shadow-lg shadow-kron-indigo/30 active:scale-[.99] disabled:cursor-not-allowed disabled:opacity-60;
+  }
+  .btn-soft {
+    @apply inline-flex min-h-[48px] items-center justify-center gap-2 rounded-xl border border-kron-purple/25 bg-white px-4 text-sm font-semibold text-kron-purple active:bg-kron-cream;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
